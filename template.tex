@@ -130,13 +130,17 @@ $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
         $if(service.details)$\newline \begin{itemize} 
           $for(service.details)$\scriptsize \item $service.details$ 
           $endfor$ \end{itemize}
-          $endif$ & $service.price$\\$endfor$ \noalign{\vskip 2mm} \hline
+          $endif$ & $service.price$ \\ $endfor$ \noalign{\vskip 2mm} \hline
   $if(VAT)$
     @ & @ \multicolumn{1}{r}{Subtotal:}                & :={sum(c1:[0,-1])} \\ \hhline{~~-}
     @ & @ \multicolumn{1}{r}{VAT $VAT$\%:}               & $VAT$/100*[0,-1] \\ \hhline{~~-}
   $endif$
   @ & @ \multicolumn{1}{r}{\textbf{Total:}}   & \textbf{:={$if(VAT)$[0,-1]+[0,-2]$else$sum(c1:[0,-1])$endif$}} \\ \hhline{~~-}
 \end{spreadtab}
+
+\vspace{5mm}
+
+\textsc{\scriptsize{Please note: Invoices are issued without disclosure of VAT according to § 19 UStG.}}
 
 
 \vspace{15mm}
@@ -148,5 +152,6 @@ $closingnote$
 \medskip
 
 $author$
+
 
 \end{document}

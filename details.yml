@@ -10,7 +10,6 @@ to:
 - Musterallee 1
 - 12345 Musterstadt
 - Germany
-VAT: 20
 service:
 - description: The first service provided
   price: 320.00
@@ -39,11 +38,11 @@ closingnote: |
 # Invoice settings
 currency: EUR
 # commasep: true
-lang: english
+lang: en-US
 
 # Typography and layout
-seriffont: Hoefler Text
-sansfont: Helvetica Neue
+seriffont: Inconsolata
+sansfont: Libertinus Sans
 fontsize: 10pt
 geometry: a4paper, left=43mm, right=43mm, top=51mm, bottom=17mm
 # letterhead: true # To include personalized letterheads
