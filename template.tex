@@ -84,7 +84,7 @@ $endif$
 }
 
 % To display custom date
-\usepackage[nodayofweek]{datetime}
+\usepackage[ddmmyy]{datetime}
 \newdate{date}{$day$}{$month$}{$year$}
 \date{\displaydate{date}}
 % Use this instead of \today: % \displaydate{date}
@@ -114,6 +114,10 @@ $endfor$
 
 \vspace{1em}
 
+$if(prdate_d)$
+\newdate{projdate_begin}{$prdate_d$}{$prdate_m$}{$prdate_y$}
+Project Date: \displaydate{projdate_begin}$endif$ $if(prdate_end_d)$\newdate{projdate_end}{$prdate_end_d$}{$prdate_end_m$}{$prdate_end_y$}- \displaydate{projdate_end}
+$endif$
 
 \section*{\textsc{Invoice} \textsc{\#$invoice-nr$}}
 \footnotesize
