@@ -144,8 +144,27 @@ $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
 
 \vspace{5mm}
 
-\textsc{\scriptsize{Please note: Invoices are issued without disclosure of VAT according to § 19 UStG.}}
+$if(extra)$
+\subsubsection*{\textsc{Reimbursable Expenses}}
+\begin{spreadtab}{{tabular}[t t]{lp{8.2cm}r}}
+  @ \noalign{\vskip 1mm} & @ \textbf{Description} & @ \textbf{Amount in $currency$} \\ \hline
+      $for(extra)$ @ \noalign{\vskip 1mm} 
+        & @ $extra.description$
+        $if(extra.details)$\newline \begin{itemize} 
+          $for(extra.details)$\scriptsize \item $extra.details$ 
+          $endfor$ \end{itemize}
+          $endif$ & $extra.price$ \\ $endfor$ \noalign{\vskip 1mm} \hline
+  $if(VAT)$
+    @ & @ \multicolumn{1}{r}{Subtotal:}                & :={sum(c1:[0,-1])} \\ \hhline{~~-}
+    @ & @ \multicolumn{1}{r}{VAT $VAT$\%:}               & $VAT$/100*[0,-1] \\ \hhline{~~-}
+  $endif$
+  @ & @ \multicolumn{1}{r}{\textbf{Total:}}   & \textbf{:={$if(VAT)$[0,-1]+[0,-2]$else$sum(c1:[0,-1])$endif$}} \\ \hhline{~~-}
+\end{spreadtab}
+$endif$
 
+
+
+\textsc{\scriptsize{Please note: Invoices are issued without disclosure of VAT according to § 19 UStG.}}
 
 \vspace{15mm}
 
