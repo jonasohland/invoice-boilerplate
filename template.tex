@@ -145,9 +145,9 @@ $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
 \vspace{5mm}
 
 $if(extra)$
-\subsubsection*{\textsc{Reimbursable Expenses}}
+\subsubsection*{\textsc{Auslagen}}
 \begin{spreadtab}{{tabular}[t t]{lp{8.2cm}r}}
-  @ \noalign{\vskip 1mm} & @ \textbf{Description} & @ \textbf{Amount in $currency$} \\ \hline
+  @ \noalign{\vskip 1mm} & @ \textbf{Beschreibung} & @ \textbf{Preis in $currency$} \\ \hline
       $for(extra)$ @ \noalign{\vskip 1mm} 
         & @ $extra.description$
         $if(extra.details)$\newline \begin{itemize} 
